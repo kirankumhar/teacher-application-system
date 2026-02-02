@@ -18,3 +18,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
+    Route::view('/dashboard', 'admin.dashboard')->name('admin.dashboard');
+});
+
+Route::middleware(['auth','role:applicant'])->prefix('applicant')->group(function () {
+    Route::view('/dashboard', 'applicant.dashboard')->name('applicant.dashboard');
+});
