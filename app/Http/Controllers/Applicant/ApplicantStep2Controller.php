@@ -23,12 +23,4 @@ class ApplicantStep2Controller extends Controller
         return view('applicant.application.step2', compact('applicant', 'age'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'address'=> 'required',
-            'id_proof_type' => 'required',
-            
-        ]);
-    }
 }
