@@ -125,6 +125,8 @@
             <div>
                 <label class="block mb-1 font-medium">Date of Birth</label>
                 <input type="date" name="dob"
+                    min="1990-01-01"
+                    max="{{ date('Y-m-d') }}"
                     class="w-full px-3 py-2 border rounded">
             </div>
 
