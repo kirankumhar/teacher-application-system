@@ -20,6 +20,15 @@ class ApplicantStep2Controller extends Controller
             return redirect()->route('applicant.dashboard');
         }
 
-        return view('applicant.step2', compact('applicant', 'age'));
+        return view('applicant.application.step2', compact('applicant', 'age'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'address'=> 'required',
+            'id_proof_type' => 'required',
+            
+        ]);
     }
 }

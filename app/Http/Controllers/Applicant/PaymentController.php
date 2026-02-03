@@ -12,7 +12,10 @@ class PaymentController extends Controller
 {
     public function create()
     {
-        $applicant = Applicant::where('user_id', Auth::id())->firstOrFail();
+        $applicant = Applicant::where('user_id', auth()->id())->firstOrFail();
+        if ($applicant->application_step >= 2) {
+            return redirect()->route('applicant.step2');
+        }
         $amount = $applicant->category === 'general' ? 1000:500;
         return view('applicant.application.step1-payment', compact('applicant', 'amount'));
     }
@@ -40,9 +43,8 @@ class PaymentController extends Controller
             'status'       => 'pending',
         ]);
 
-        $applicant->update([
-            'application_step' => 2,
-        ]);
+        $applicant->application_step = 2;
+        $applicant->save();
 
         return redirect()->route('applicant.step2')
             ->with('success', 'Payment details submitted successfully');

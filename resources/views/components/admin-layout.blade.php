@@ -9,12 +9,9 @@
 
 <body class="bg-gray-100">
 
-    <!-- HEADER -->
     <x-admin-header />
 
     <div class="flex min-h-screen">
-
-        <!-- SIDEBAR -->
         
         <aside class="w-64 text-white bg-indigo-700">
             <nav class="p-4 space-y-2">
@@ -53,7 +50,6 @@
             </nav>
         </aside>
 
-        <!-- MAIN CONTENT -->
         <main class="flex-1 p-6">
             {{ $slot }}
         </main>

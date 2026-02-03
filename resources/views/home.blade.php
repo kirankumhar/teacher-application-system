@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Two-Button Layout</title>
+    <title>Teacher Registration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,16 +15,15 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
     <div class="w-full max-w-4xl">
-        <!-- Header -->
+        
         <header class="mb-12 text-center">
             <h1 class="mb-4 text-4xl font-bold text-gray-800 md:text-5xl">Teacher Application System</h1>
             <p class="max-w-2xl mx-auto text-lg text-gray-600">Welcome! Choose your login or registration option below.</p>
         </header>
 
         <main class="p-6 bg-white shadow-xl rounded-2xl md:p-10">
+
             
-            
-            <!-- Centered Action Section -->
             <div class="pt-8 mt-12 border-t border-gray-100">
                 <div class="text-center">
                     {{-- <h3 class="mb-6 text-xl font-bold text-gray-800">Main Action Buttons</h3>
@@ -36,19 +35,12 @@
                         </a>
                         
                         <a href="{{ route('applicant.register') }}" id="mainBtn2" class="flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 transform shadow-lg bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl hover:from-emerald-600 hover:to-green-700 hover:-translate-y-1 hover:shadow-xl">
-                            
                             Applicant Registration
                         </a>
                     </div>
-                    
-                    
                 </div>
             </div>
         </main>
-        
-
     </div>
-
-
 </body>
 </html>

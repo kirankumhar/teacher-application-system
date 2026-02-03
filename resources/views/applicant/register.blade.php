@@ -7,8 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-100">
-
-    
     <header class="bg-white shadow">
         <div class="flex items-center justify-between max-w-6xl px-4 py-4 mx-auto">
             <h1 class="text-xl font-semibold text-gray-800">
@@ -39,8 +37,6 @@
 
         <form method="POST" action="{{ route('applicant.register.store') }}" class="space-y-5">
             @csrf
-
-            
             <div>
                 <label class="block mb-1 font-medium">
                     Have you already applied in Advt. No. 01/2024?
@@ -144,7 +140,6 @@
                 @enderror
             </div>
 
-            
             <div>
                 <label class="block mb-1 font-medium">Date of Birth</label>
                 <input type="date" name="dob"
@@ -154,7 +149,6 @@
                 @enderror
             </div>
 
-            
             <div>
                 <label class="block mb-1 font-medium">Full Name</label>
                 <input type="text" name="name"
@@ -165,7 +159,6 @@
                 @enderror
             </div>
 
-            
             <div>
                 <label class="block mb-1 font-medium">Mobile No</label>
                 <input type="text" name="mobile"
@@ -176,7 +169,6 @@
                 @enderror
             </div>
 
-            
             <div>
                 <label class="block mb-1 font-medium">Email (Username)</label>
                 <input type="email" name="email"
@@ -185,7 +177,6 @@
                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
-
             
             <div>
                 <label class="block mb-1 font-medium">Password</label>
@@ -196,7 +187,6 @@
                 @enderror
             </div>
 
-            
             <div>
                 <label class="block mb-1 font-medium">Confirm Password</label>
                 <input type="password" name="password_confirmation"
