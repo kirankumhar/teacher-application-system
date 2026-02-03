@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->roll === 'admin';
     }
+
+    public function applicant ()
+    {
+        return $this->hasOne(Applicant::class);
+    }
 }
