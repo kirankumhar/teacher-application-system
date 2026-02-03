@@ -21,7 +21,15 @@
             </a>
         </div>
     </header>
-
+        
+    @if(session('success'))
+        <div class="max-w-3xl p-4 mx-auto">
+            <div class="flex items-center justify-between">
+                <p class="text-green-7000">{{ session('success') }}</p>
+                <button onclick="this.parentElement.parentElement.remove()" class="text-green-700 hover:text-green-900">X</button>
+            </div>
+        </div>
+    @endif
     
     <main class="max-w-3xl p-8 mx-auto mt-10 mb-10 bg-white rounded-lg shadow">
 
@@ -64,6 +72,9 @@
                 <p class="mt-2 text-xs text-gray-500">
                     In case of selection of Agriculture B.Ed is not mandatory, for rest fields B.Ed. is mandatory.
                 </p>
+                @error('subject')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>                    
+                @enderror
             </div>
 
             <div>
@@ -74,6 +85,9 @@
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                 </select>
+                @error('gender')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
 
@@ -91,6 +105,9 @@
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
+                @error('physically_handicapped')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
@@ -104,6 +121,9 @@
                     id="handicap_reason"
                     class="w-full px-3 py-2 border rounded"
                     placeholder="Mention disability">
+                    @error('handicapped_remark')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
             </div>
 
             
@@ -119,15 +139,19 @@
                 <p class="mt-2 text-xs text-gray-500">
                     other than general category, at the time of document uploading, upload caste certificate
                 </p>
+                @error('category')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
             <div>
                 <label class="block mb-1 font-medium">Date of Birth</label>
                 <input type="date" name="dob"
-                    min="1990-01-01"
-                    max="{{ date('Y-m-d') }}"
                     class="w-full px-3 py-2 border rounded">
+                @error('dob')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
@@ -135,6 +159,10 @@
                 <label class="block mb-1 font-medium">Full Name</label>
                 <input type="text" name="name"
                     class="w-full px-3 py-2 border rounded">
+
+                @error('name')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
@@ -142,6 +170,10 @@
                 <label class="block mb-1 font-medium">Mobile No</label>
                 <input type="text" name="mobile"
                     class="w-full px-3 py-2 border rounded">
+
+                @error('mobile')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
@@ -149,6 +181,9 @@
                 <label class="block mb-1 font-medium">Email (Username)</label>
                 <input type="email" name="email"
                     class="w-full px-3 py-2 border rounded">
+                @error('email')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
@@ -156,6 +191,9 @@
                 <label class="block mb-1 font-medium">Password</label>
                 <input type="password" name="password"
                     class="w-full px-3 py-2 border rounded">
+                @error('password')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             
