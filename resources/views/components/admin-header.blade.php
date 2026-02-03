@@ -1,11 +1,15 @@
-<header class="antialiased">
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div class="flex flex-wrap justify-between items-center">
-            <div class="flex justify-start items-center">
-                <a href="/" class="flex mr-4">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Teacher Application</span>
-                </a>
-            </div>
-        </div>
+<header>
+    <nav class="flex items-center justify-between px-6 py-3 bg-white shadow">
+        <h1 class="text-xl font-semibold text-gray-800">
+            Teacher Application
+        </h1>
+
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit"
+                class="font-medium text-red-600 hover:text-red-800">
+                Logout
+            </button>
+        </form>
     </nav>
 </header>

@@ -12,11 +12,14 @@ class Applicant extends Model
 
     protected $fillable = [
         'user_id',
+        'already_applied',
         'post',
         'subject',
         'category',
         'gender',
         'handicapped',
+        'dob',
+        'mobile',
     ];
 
     public function user()
