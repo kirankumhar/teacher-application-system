@@ -6,7 +6,14 @@
         <!-- READ ONLY INFO -->
         <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
             <p><b>Name:</b> {{ $applicant->user->name }}</p>
-            <p><b>DOB:</b> {{ $applicant->dob }}</p>
+            <p><b>Date of Birth:</b> {{ \Carbon\Carbon::parse($applicant->dob)->format('d-m-Y') }}</p>
+
+            <p>
+                <b>Age (as on 01-01-2024):</b>
+                {{ $age->y }} Years
+                {{ $age->m }} Months
+                {{ $age->d }} Days
+            </p>
             <p><b>Gender:</b> {{ ucfirst($applicant->gender) }}</p>
             <p><b>Category:</b> {{ strtoupper($applicant->category) }}</p>
             <p><b>Mobile:</b> {{ $applicant->mobile }}</p>

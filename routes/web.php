@@ -46,7 +46,5 @@ Route::middleware(['auth'])->prefix('applicant')->group(function () {
     Route::get('/application/step-1', [PaymentController::class, 'create'])->name('applicant.payment.step1');
     Route::post('/application/step-1', [PaymentController::class, 'store'])->name('applicant.payment.store');
     Route::get('/application/step-2', [ApplicantStep2Controller::class, 'create'])->name('applicant.step2');
-    Route::Post('/application/step-2', [ApplicantStep2Controller::class, 'create'])->name('applicant.step2.store');
-
-    
+    Route::Post('/application/step-2', [ApplicantStep2Controller::class, 'create'])->name('applicant.step2.store');    
 });

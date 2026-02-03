@@ -19,7 +19,6 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        
         $request->validate([
             'bank_name'   => 'required|string',
             'payment_ref' => 'required|string',

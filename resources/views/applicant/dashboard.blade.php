@@ -18,7 +18,7 @@
                     </tr>
                     <tr>
                         <th class="p-2 text-left border">Dob</th>
-                        <td class="p-2 border">{{ $user->applicant->dob }}</td>
+                        <td class="p-2 border">{{ $user->applicant->dob }} </td>
                     </tr>
                     <tr>
                         <th class="p-2 text-left border">Post</th>
