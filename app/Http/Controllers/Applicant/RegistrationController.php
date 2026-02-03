@@ -49,7 +49,7 @@ class RegistrationController extends Controller
             'category'        => $request->category,
             'gender'          => $request->gender,
             'handicapped'     => (int) $request->physically_handicapped,
-            'handicap_reason' => $request->physically_handicapped ? $request->handicap_reason : null,
+            'handicapped_remark' => $request->physically_handicapped ? $request->handicap_reason : null,
             'dob'             => $request->dob,
             'mobile'          => $request->mobile,
         ]);
