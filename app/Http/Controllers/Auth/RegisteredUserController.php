@@ -45,25 +45,23 @@ class RegisteredUserController extends Controller
             'handicapped' => 'required',
         ]);
 
-        DB::transaction(function () use ($request) {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'role' => 'applicant',
-            ]);
+        Applicant::create([
+            'user_id' => $user->id,
+            'post' => $request->post,
+            'subject' => $request->subject,
+            'category' => $request->category,
+            'gender' => $request->gender,
+            'handicapped' => $request->handicapped,
+        ]);
 
-            Applicant::create([
-                'user_id' => $user->id,
-                'post' => $request->post,
-                'subject' => $request->subject,
-                'category' => $request->category,
-                'gender' => $request->gender,
-                'handicapped' => $request->handicapped === 'Yes',
-            ]);
-        });
-
+        Auth::login($user);
+        
         return redirect()->route('applicant.dashboard');
     }
 }

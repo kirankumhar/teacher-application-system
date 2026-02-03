@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Applicant\DashboardController as ApplicantDashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,5 +25,6 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
 });
 
 Route::middleware(['auth','role:applicant'])->prefix('applicant')->group(function () {
-    Route::view('/dashboard', 'applicant.dashboard')->name('applicant.dashboard');
+    Route::get('/dashboard', [ApplicantDashboard::class, 'index'])
+        ->name('applicant.dashboard');
 });
