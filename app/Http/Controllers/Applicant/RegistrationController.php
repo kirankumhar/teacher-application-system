@@ -48,7 +48,8 @@ class RegistrationController extends Controller
             'subject'         => $request->subject,
             'category'        => $request->category,
             'gender'          => $request->gender,
-            'handicapped'     => $request->handicapped === 'Yes',
+            'handicapped'     => (int) $request->physically_handicapped,
+            'handicap_reason' => $request->physically_handicapped ? $request->handicap_reason : null,
             'dob'             => $request->dob,
             'mobile'          => $request->mobile,
         ]);

@@ -100,7 +100,7 @@
                 </label>
 
                 <input type="text"
-                    name="handicap_reason"
+                    name="handicapped_remark"
                     id="handicap_reason"
                     class="w-full px-3 py-2 border rounded"
                     placeholder="Mention disability">

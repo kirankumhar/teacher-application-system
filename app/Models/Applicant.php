@@ -18,6 +18,7 @@ class Applicant extends Model
         'category',
         'gender',
         'handicapped',
+        'handicapped_remark',
         'dob',
         'mobile',
     ];
