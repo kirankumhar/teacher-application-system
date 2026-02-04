@@ -56,4 +56,5 @@ Route::middleware(['auth'])->prefix('applicant')->group(function () {
         Route::post('/application/step-3', [ApplicantStep3Controller::class, 'store'])
     ->name('applicant.step3.store');
     Route::get('/application/preview', [ApplicantStep3Controller::class, 'view'])->name('applicant.preview');
+    Route::post('/application/final-submit', [ApplicantStep3Controller::class, 'finalSubmit'])->name('applicant.final.submit');
 });

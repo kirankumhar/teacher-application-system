@@ -52,11 +52,10 @@
 
         <hr class="my-4">
 
-        {{-- FINAL SUBMIT --}}
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('applicant.final.submit') }}">
             @csrf
             <button class="px-6 py-2 text-white bg-green-600 rounded">
-                Final Submit Application
+                Final Submit & Download PDF
             </button>
         </form>
 

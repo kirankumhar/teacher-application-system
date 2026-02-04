@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Applicant;
 use App\Models\ApplicantDocument;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class ApplicantStep3Controller extends Controller
 {
@@ -79,5 +81,29 @@ class ApplicantStep3Controller extends Controller
         
 
         return view('applicant.application.preview', compact('applicant'));
+    }
+
+    public function finalSubmit()
+    {
+        $applicant = Applicant::where('user_id', auth()->id())->firstOrFail();
+
+        if ($applicant->application_step < 4) {
+            return redirect()->route('applicant.step3');
+        }
+        $ackNo = 'ACK' . now()->format('Y') . rand(100000, 999999);
+
+        $applicant->update([
+            'acknowledgement_no' => $ackNo,
+            'submitted_at' => now(),
+            'application_step' => 5,
+        ]);
+
+        $submittedOn = $applicant->submitted
+        ? Carbon::parse($applicant->submitted)->format('d-m-Y')
+        : '-';
+
+
+        $pdf = Pdf::loadView('pdf.acknowledgement', compact('applicant', 'submittedOn'));
+        return $pdf->download('acknowledgement_'.$ackNo.'.pdf');
     }
 }

@@ -22,13 +22,16 @@ class Applicant extends Model
         'dob',
         'mobile',
 
-        // Step-2 personal
+        
         'address',
         'aadhaar_pan_type',
         'aadhaar_pan_no',
 
-        // flow control
+        
         'application_step',
+        'acknowledgement_no',
+        'submitted_at',
+
     ];
 
     public function user()
