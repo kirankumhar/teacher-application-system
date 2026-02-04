@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicant_educations', function (Blueprint $table) {
+        Schema::create('applicant_documents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('applicant_id')->constrained()->cascadeOnDelete();
-
-            $table->string('level'); 
-            $table->string('board_university');
-            $table->string('subjects');
-            $table->year('passing_year');
-            $table->integer('marks_obtained');
-            $table->string('division')->nullable();
-            $table->string('certificate_no');
+            $table->string('document_type');
+            $table->string('file_path');
             $table->timestamps();
         });
     }
@@ -31,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applicant_educations');
+        Schema::dropIfExists('applicant_documents');
     }
 };

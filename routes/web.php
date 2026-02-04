@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ApplicantController;
 use App\Http\Controllers\Applicant\PaymentController;
 use App\Http\Controllers\Applicant\ApplicantStep2Controller;
+use App\Http\Controllers\Applicant\ApplicantStep3Controller;
 use App\Http\Controllers\Applicant\RegistrationController;
 use App\Http\Controllers\Applicant\DashboardController as ApplicantDashboard;
 
@@ -48,5 +49,11 @@ Route::middleware(['auth'])->prefix('applicant')->group(function () {
     Route::get('/application/step-1', [PaymentController::class, 'create'])->name('applicant.payment.step1');
     Route::post('/application/step-1', [PaymentController::class, 'store'])->name('applicant.payment.store');
     Route::get('/application/step-2', [ApplicantStep2Controller::class, 'create'])->name('applicant.step2');
-    Route::Post('/application/step-2', [ApplicantStep2Controller::class, 'create'])->name('applicant.step2.store');    
+    Route::post('/application/step-2/store', [ApplicantStep2Controller::class, 'store'])
+        ->name('applicant.step2.store');    
+    Route::get('/application/step-3', [ApplicantStep3Controller::class, 'create'])
+        ->name('applicant.step3');
+        Route::post('/application/step-3', [ApplicantStep3Controller::class, 'store'])
+    ->name('applicant.step3.store');
+    Route::get('/application/preview', [ApplicantStep3Controller::class, 'view'])->name('applicant.preview');
 });
