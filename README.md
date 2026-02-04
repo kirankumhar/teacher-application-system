@@ -1,31 +1,49 @@
 # Teacher Application System
 
-This is a Laravel-based web application developed as part of a machine test.
-
-## Features Implemented
-- Role-based authentication (Admin / Applicant)
-- Applicant registration with basic eligibility details
-- Applicant dashboard
-- Step-1: Application payment module
-- File upload for payment receipt
-- Application step tracking
-
-## Tech Stack
-- Laravel
-- Blade
-- MySQL
-- Tailwind CSS
-
-## Notes
-- The application is being developed in a step-by-step flow as per the requirements.
-- Remaining steps (Personal info, Education, Documents, Final submission) are in progress.
-
-## Setup Instructions
-1. Clone the repository
-2. Run `composer install`
-3. Configure `.env`
-4. Run migrations and seeders
-5. Start the server
+A Laravel-based web application developed as part of a **machine test**, simulating an online teacher recruitment portal with applicant and admin workflows.
 
 ---
-Developed for machine test evaluation.
+
+## 🔐 Authentication & Roles
+- Role-based authentication using Laravel Breeze
+- Roles:
+  - **Applicant**
+  - **Admin**
+- Email verification after signup
+- Protected routes using `auth`, `verified`, and `role` middleware
+
+---
+
+## 🧑‍🏫 Applicant Module
+- New applicant registration with eligibility validation
+- Email verification before accessing dashboard
+- Step-by-step application process:
+  - **Step 1:** Payment details with category-based fee (₹1000 / ₹500)
+  - **Step 2:** Personal information & educational qualifications
+  - **Step 3:** Document upload (Photo, Signature, Certificates, etc.)
+  - **Step 4:** Final preview & submission
+- Automatic age calculation with category-wise relaxation rules
+- Division calculation based on marks
+- Application step tracking
+- **Acknowledgement number generation**
+- **Acknowledgement PDF generation and download**
+
+---
+
+## 🧑‍💼 Admin Module
+- Admin dashboard
+- View **all applicants**
+- Separate listings for:
+  - Submitted applications
+  - Approved applications
+  - Rejected applications
+- View complete applicant details (education, documents, payment)
+- Approve / Reject submitted applications
+- On approval:
+  - **Registration number generation** (subject-based format)
+  - Application status update
+- Status badges for quick identification
+
+---
+
+## 📄 Registration Number Format

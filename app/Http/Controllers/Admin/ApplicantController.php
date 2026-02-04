@@ -93,4 +93,14 @@ class ApplicantController extends Controller
             ->route('admin.applicants.submitted')
             ->with('error', 'Application rejected.');
     }
+
+    public function rejected()
+    {
+        $applications = Applicant::with('user')
+            ->where('status', 'rejected')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        return view('admin.applicants.rejected', compact('applications'));
+    }
 }

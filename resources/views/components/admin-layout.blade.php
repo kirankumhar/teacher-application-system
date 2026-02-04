@@ -38,7 +38,7 @@
                     Approved Forms
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.applicants.rejected') }}"
                    class="block px-4 py-2 rounded hover:bg-indigo-600">
                     Rejected Forms
                 </a>
