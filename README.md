@@ -10,13 +10,12 @@ A Laravel-based web application developed as part of a **machine test**, simulat
   - **Applicant**
   - **Admin**
 - Email verification after signup
-- Protected routes using `auth`, `verified`, and `role` middleware
+- Protected routes using `auth`, and `role` middleware
 
 ---
 
 ## 🧑‍🏫 Applicant Module
 - New applicant registration with eligibility validation
-- Email verification before accessing dashboard
 - Step-by-step application process:
   - **Step 1:** Payment details with category-based fee (₹1000 / ₹500)
   - **Step 2:** Personal information & educational qualifications
