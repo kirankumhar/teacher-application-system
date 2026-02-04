@@ -26,7 +26,14 @@
                     Applicants
                 </a>
 
-                <a href="#"
+               
+                <a href="{{ route('admin.applicants.submitted') }}" 
+                    class="block px-4 py-2 rounded hover:bg-indigo-600">
+                    Submitted Forms
+                </a>
+   
+
+                <a href="{{ route('admin.applicants.approved') }}"
                    class="block px-4 py-2 rounded hover:bg-indigo-600">
                     Approved Forms
                 </a>

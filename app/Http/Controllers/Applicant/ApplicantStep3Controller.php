@@ -96,6 +96,7 @@ class ApplicantStep3Controller extends Controller
             'acknowledgement_no' => $ackNo,
             'submitted_at' => now(),
             'application_step' => 5,
+            'status'           => 'submitted',
         ]);
 
         $submittedOn = $applicant->submitted

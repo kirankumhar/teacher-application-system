@@ -35,6 +35,11 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('admin.dashboard');
     Route::get('/applicants', [ApplicantController::class, 'index'])->name('admin.applicants.index');
+    Route::get('/applicants/submitted', [ApplicantController::class, 'submitted'])->name('admin.applicants.submitted');
+    Route::get('/applicants/approved', [ApplicantController::class, 'approved'])->name('admin.applicants.approved');
+    Route::get('/applicants/{applicant}', [ApplicantController::class, 'show'])->name('admin.applicants.show');
+    Route::post('/applicants/{applicant}/approve',[ApplicantController::class, 'approve'])->name('admin.applicants.approve');
+    Route::post('/applicants/{applicant}/reject', [ApplicantController::class, 'reject'])->name('admin.applicants.reject');
 });
 
 Route::middleware(['auth','role:applicant'])->prefix('applicant')->group(function () {
@@ -57,4 +62,10 @@ Route::middleware(['auth'])->prefix('applicant')->group(function () {
     ->name('applicant.step3.store');
     Route::get('/application/preview', [ApplicantStep3Controller::class, 'view'])->name('applicant.preview');
     Route::post('/application/final-submit', [ApplicantStep3Controller::class, 'finalSubmit'])->name('applicant.final.submit');
+});
+
+Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
+
+    
+
 });

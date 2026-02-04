@@ -10,7 +10,7 @@ class Applicant extends Model
     use HasFactory;
 
     protected $fillable = [
-        // Step-1 / basic
+        
         'user_id',
         'already_applied',
         'post',
@@ -29,9 +29,18 @@ class Applicant extends Model
 
         
         'application_step',
+        'status',
         'acknowledgement_no',
         'submitted_at',
+        'registration_no',
+        'approved_at',
 
+    ];
+
+    protected $casts = [
+        'submitted_at' => 'datetime',
+        'approved_at'  => 'datetime',
+        'dob'          => 'date',
     ];
 
     public function user()
@@ -45,5 +54,9 @@ class Applicant extends Model
     public function documents()
     {
         return $this->hasMany(ApplicantDocument::class);
+    }
+    public function payments()
+    {
+        return $this->hasOne(ApplicationPayment::class);
     }
 }
