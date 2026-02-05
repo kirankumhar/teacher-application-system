@@ -65,9 +65,3 @@ Route::middleware(['auth'])->prefix('applicant')->group(function () {
     Route::get('/application/preview', [ApplicantStep3Controller::class, 'view'])->name('applicant.preview');
     Route::post('/application/final-submit', [ApplicantStep3Controller::class, 'finalSubmit'])->name('applicant.final.submit');
 });
-
-Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
-
-    
-
-});
