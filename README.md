@@ -43,8 +43,6 @@ A Laravel-based web application developed as part of a **machine test**, simulat
   - Application status update
 - Status badges for quick identification
 
----
-
 ## 📄 Registration Number Format
 
 

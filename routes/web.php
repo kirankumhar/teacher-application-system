@@ -41,7 +41,6 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/applicants/{applicant}', [ApplicantController::class, 'show'])->name('admin.applicants.show');
     Route::post('/applicants/{applicant}/approve',[ApplicantController::class, 'approve'])->name('admin.applicants.approve');
     Route::post('/applicants/{applicant}/reject', [ApplicantController::class, 'reject'])->name('admin.applicants.reject');
-    
 });
 
 Route::middleware(['auth','role:applicant'])->prefix('applicant')->group(function () {
